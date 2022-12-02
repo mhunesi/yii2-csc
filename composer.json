@@ -1,0 +1,21 @@
+{
+    "name": "mhunesi/yii2-csc",
+    "description": "Yii2 Country State City migration and models.",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","country","state","city"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mustafa Hayri ÜNEŞİ",
+            "email": "hey@mustafaunesi.com.tr"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "~2.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "mhunesi\\csc\\": "src"
+        }
+    }
+}
