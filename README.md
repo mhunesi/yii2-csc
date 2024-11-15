@@ -27,6 +27,7 @@ Usage
 
 Once the extension is installed, simply use it in your code by  :
 
+And run migration:
 ```php
 'controllerMap' => [
     'migrate' => [
@@ -42,12 +43,14 @@ Once the extension is installed, simply use it in your code by  :
 ],
 ```
 
-And run migration:
-
 ```php
 php yii migrate
 ```
+OR
 
+```php
+yii migrate --migrationPath=@mhunesi/csc/migrations
+```
 ## Models
 
 * Country
