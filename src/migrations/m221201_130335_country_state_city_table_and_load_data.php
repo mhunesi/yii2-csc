@@ -10,17 +10,17 @@ class m221201_130335_country_state_city_table_and_load_data extends Migration
 {
     private $_files = [
         'country' => [
-            'url' => 'https://raw.githubusercontent.com/dr5hn/countries-states-cities-database/master/csv/countries.csv',
+            'url' => 'https://raw.githubusercontent.com/dr5hn/countries-states-cities-database/v2.5/csv/countries.csv',
             'path' => '@runtime/countries.csv',
             'field' => 'getCountryFields'
         ],
         'state' => [
-            'url' => 'https://raw.githubusercontent.com/dr5hn/countries-states-cities-database/master/csv/states.csv',
+            'url' => 'https://raw.githubusercontent.com/dr5hn/countries-states-cities-database/v2.5/csv/states.csv',
             'path' => '@runtime/states.csv',
             'field' => 'getStateFields'
         ],
         'city' => [
-            'url' => 'https://raw.githubusercontent.com/dr5hn/countries-states-cities-database/master/csv/cities.csv',
+            'url' => 'https://raw.githubusercontent.com/dr5hn/countries-states-cities-database/v2.5/csv/cities.csv',
             'path' => '@runtime/cities.csv',
             'field' => 'getCityFields'
         ]
