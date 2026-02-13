@@ -178,7 +178,7 @@ class m221201_130335_country_state_city_table_and_load_data extends Migration
             $csv = fopen($csvFile, 'r');
             do {
                 $rows = [];
-                for ($i = 0; ($row = fgetcsv($csv, 1024, static::CSV_DELIMITER)) && $i < static::INSERT_ROWS; ++$i) {
+                for ($i = 0; ($row = fgetcsv($csv, 1024, static::CSV_DELIMITER, '"', '\\')) && $i < static::INSERT_ROWS; ++$i) {
                     $rows[] = $row;
                 }
 
@@ -214,7 +214,7 @@ class m221201_130335_country_state_city_table_and_load_data extends Migration
 
         $lines = [];
 
-        while ($row = fgetcsv($source, 1024, static::CSV_DELIMITER)) {
+        while ($row = fgetcsv($source, 1024, static::CSV_DELIMITER, '"', '\\')) {
             $lines[] = $row;
         }
 
@@ -238,7 +238,7 @@ class m221201_130335_country_state_city_table_and_load_data extends Migration
                 $newLine[] = $line[$header[$tableColumn]];
             }
 
-            fputcsv($handle, $newLine, self::CSV_DELIMITER, '"');
+            fputcsv($handle, $newLine, self::CSV_DELIMITER, '"', '\\');
 
         },$lines);
 
