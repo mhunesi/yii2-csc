@@ -3,6 +3,7 @@
 namespace mhunesi\csc\models;
 
 use Yii;
+use mhunesi\csc\models\query\CountryQuery;
 
 /**
  * This is the model class for table "country".
@@ -61,23 +62,23 @@ class Country extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'name' => 'Name',
-            'iso2' => 'Iso2',
-            'iso3' => 'Iso3',
-            'numeric_code' => 'Numeric Code',
-            'phone_code' => 'Phone Code',
-            'capital' => 'Capital',
-            'currency' => 'Currency',
-            'currency_name' => 'Currency Name',
-            'currency_symbol' => 'Currency Symbol',
-            'tld' => 'Tld',
-            'native' => 'Native',
-            'region' => 'Region',
-            'subregion' => 'Subregion',
-            'timezones' => 'Timezones',
-            'latitude' => 'Latitude',
-            'longitude' => 'Longitude',
+            'id' => Yii::t('csc', 'ID'),
+            'name' => Yii::t('csc', 'Name'),
+            'iso2' => Yii::t('csc', 'ISO2'),
+            'iso3' => Yii::t('csc', 'ISO3'),
+            'numeric_code' => Yii::t('csc', 'Numeric Code'),
+            'phone_code' => Yii::t('csc', 'Phone Code'),
+            'capital' => Yii::t('csc', 'Capital'),
+            'currency' => Yii::t('csc', 'Currency'),
+            'currency_name' => Yii::t('csc', 'Currency Name'),
+            'currency_symbol' => Yii::t('csc', 'Currency Symbol'),
+            'tld' => Yii::t('csc', 'TLD'),
+            'native' => Yii::t('csc', 'Native'),
+            'region' => Yii::t('csc', 'Region'),
+            'subregion' => Yii::t('csc', 'Subregion'),
+            'timezones' => Yii::t('csc', 'Timezones'),
+            'latitude' => Yii::t('csc', 'Latitude'),
+            'longitude' => Yii::t('csc', 'Longitude'),
         ];
     }
 
@@ -88,4 +89,13 @@ class Country extends \yii\db\ActiveRecord
     {
         return $this->hasMany(State::class,['id' => 'state_id']);
     }
+
+	/**
+	 * {@inheritdoc}
+	 * @return CountryQuery the active query used by this AR class.
+	 */
+	public static function find()
+	{
+		return new CountryQuery(get_called_class());
+	}
 }

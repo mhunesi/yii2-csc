@@ -32,6 +32,31 @@ or add to the `require` section of your `composer.json` file:
 
 ## Usage
 
+### Configuration
+
+The extension automatically registers translations via Bootstrap. If you need to manually configure translations, add this to your application config:
+
+```php
+'components' => [
+    'i18n' => [
+        'translations' => [
+            'csc' => [
+                'class' => 'yii\i18n\PhpMessageSource',
+                'sourceLanguage' => 'en-US',
+                'basePath' => '@mhunesi/csc/messages',
+                'fileMap' => [
+                    'csc' => 'csc.php',
+                ],
+            ],
+        ],
+    ],
+],
+```
+
+Supported languages:
+- English (en)
+- Turkish (tr)
+
 ### Running Migration
 
 After installation, configure your console application to include the migration path:

@@ -3,6 +3,7 @@
 namespace mhunesi\csc\models;
 
 use Yii;
+use mhunesi\csc\models\query\StateQuery;
 
 /**
  * This is the model class for table "state".
@@ -14,6 +15,7 @@ use Yii;
  * @property string|null $country_name
  * @property string|null $state_code
  * @property string|null $type
+ * @property string|null $native
  * @property string|null $latitude
  * @property string|null $longitude
  *
@@ -41,7 +43,7 @@ class State extends \yii\db\ActiveRecord
             [['name'], 'string', 'max' => 255],
             [['country_code', 'state_code'], 'string', 'max' => 10],
             [['country_name'], 'string', 'max' => 128],
-            [['type', 'latitude', 'longitude'], 'string', 'max' => 50],
+            [['type', 'latitude', 'longitude','native'], 'string', 'max' => 50],
         ];
     }
 
@@ -51,15 +53,16 @@ class State extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'name' => 'Name',
-            'country_id' => 'Country ID',
-            'country_code' => 'Country Code',
-            'country_name' => 'Country Name',
-            'state_code' => 'State Code',
-            'type' => 'Type',
-            'latitude' => 'Latitude',
-            'longitude' => 'Longitude',
+            'id' => Yii::t('csc', 'ID'),
+            'name' => Yii::t('csc', 'Name'),
+            'country_id' => Yii::t('csc', 'Country ID'),
+            'country_code' => Yii::t('csc', 'Country Code'),
+            'country_name' => Yii::t('csc', 'Country Name'),
+            'state_code' => Yii::t('csc', 'State Code'),
+            'type' => Yii::t('csc', 'Type'),
+            'native' => Yii::t('csc', 'Native'),
+            'latitude' => Yii::t('csc', 'Latitude'),
+            'longitude' => Yii::t('csc', 'Longitude'),
         ];
     }
 
@@ -78,4 +81,13 @@ class State extends \yii\db\ActiveRecord
     {
         return $this->hasMany(City::class,['state_id' => 'id']);
     }
+
+	/**
+	 * {@inheritdoc}
+	 * @return StateQuery the active query used by this AR class.
+	 */
+	public static function find()
+	{
+		return new StateQuery(get_called_class());
+	}
 }
