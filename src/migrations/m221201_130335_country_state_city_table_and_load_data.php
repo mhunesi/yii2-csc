@@ -43,6 +43,7 @@ class m221201_130335_country_state_city_table_and_load_data extends Migration
 				'country_name' => 'country_name',
 				'state_code' => 'iso2',
 				'type' => 'type',
+				'native' => 'native',
 				'latitude' => 'latitude',
 				'longitude' => 'longitude'
 			]
@@ -59,6 +60,7 @@ class m221201_130335_country_state_city_table_and_load_data extends Migration
 				'country_id' => 'country_id',
 				'country_code' => 'country_code',
 				'country_name' => 'country_name',
+				'native' => 'native',
 				'latitude' => 'latitude',
 				'longitude' => 'longitude',
 				'wikiDataId' => 'wikiDataId'
@@ -136,6 +138,7 @@ class m221201_130335_country_state_city_table_and_load_data extends Migration
 			'country_name' => $this->string(128),
 			'state_code' => $this->string(10),
 			'type' => $this->string(50),
+			'native' => $this->string(50),
 			'latitude' => $this->string(50),
 			'longitude' => $this->string(50),
 		];
@@ -152,6 +155,7 @@ class m221201_130335_country_state_city_table_and_load_data extends Migration
 			'country_id' => $this->integer(),
 			'country_code' => $this->string(5),
 			'country_name' => $this->string(),
+			'native' => $this->string(100),
 			'latitude' => $this->string(50),
 			'longitude' => $this->string(50),
 			'wikiDataId' => $this->string(50)
